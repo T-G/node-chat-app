@@ -1,26 +1,38 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Node Chat App</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <p>Welcom to the chat app</p>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Node Chat App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/styles.min.css">
+</head>
+
+<body class="chat">
+    <div class="chat__sidebar">
+        <h3>People</h3>
+        <div id="users"></div>
+    </div>
+    <div class="chat__main">
         <!--List All messages-->
-        <ol id="messages"></ol>
-        
-        <form id="message-form">
-            <input type="" name="message" value="" placeholder="Message">
-            <!--<textarea rows="" cols="" name="message" placeholder="Enter Message"></textarea>-->
-            <button type="submit">Send</button>
-        </form>
-        
-        <button id="send-location">Send Location</button>
-        
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="/js/libs/jquery-3.2.1.min.js"></script>
-        <script src="/js/index.js"></script>
-    </body>
+        <ol id="messages" class="chat__messages"></ol>
+
+        <div class="chat__footer">
+            <form id="message-form">
+                <input type="" name="message" value="" placeholder="Message" autofocus autocomplete="off">
+                <!--<textarea rows="" cols="" name="message" placeholder="Enter Message"></textarea>-->
+                <button type="submit">Send</button>
+            </form>
+            <button id="send-location">Send Location</button>
+        </div>
+    </div>
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/libs/jquery-3.2.1.min.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+
 </html>

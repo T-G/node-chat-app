@@ -35,11 +35,13 @@ jQuery("#message-form").on("submit", function(e){
     // by default a submit event will go through a page refresh process 
     e.preventDefault();
 
+    var messageTextBox = jQuery("[name=message");
+
     socket.emit("createMessage", {
         from: "User",
-        text: jQuery("[name=message]").val()
+        text: messageTextBox.val()
     }, function(){
-
+        messageTextBox.val("");
     });
 });
 
@@ -48,6 +50,8 @@ locationButton.on("click", function(){
     if(!navigator.geolocation){
         return alert("Geolocation not supported by your browser.");
     }
+
+    locationButton.attr("disabled", "disabled");
 
     navigator.geolocation.getCurrentPosition(function(position){
         socket.emit("createLocationMessage",{
